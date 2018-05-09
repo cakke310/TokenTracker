@@ -55,7 +55,6 @@ public class MainActivity extends BaseActivity {
     TextView tv_token20;
 
     String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20};
-    TextView textArray[]={tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20};
     String[] NUMBER ={"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
     @Override
     public int getLayoutId() {
@@ -64,11 +63,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        TextView textArray[]={tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20};
 
         for(int i=0;i<NUMBER.length;i++){
-//            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i]);
-            getTokenBalance(EOS_ADDRESS[i],tv_token20,NUMBER[i]);
-            Log.e("2222",EOS_ADDRESS[i]+"----"+NUMBER[i]);
+            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i]);
+//            getTokenBalance(EOS_ADDRESS[i],tv_token20,NUMBER[i]);
+//            Log.e("2222",EOS_ADDRESS[i]+"----"+NUMBER[i]);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
@@ -112,8 +112,11 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     protected void _onNext(TokenBean billInfoBean) {
-                        Log.e("222",billInfoBean.getResult());
-                        tv.setText("第"+number+"位拥有EOS: "+billInfoBean.getResult());
+//                        Log.e("222",billInfoBean.getResult());
+                        String tokenBalance = billInfoBean.getResult();
+                        String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
+
+                        tv.setText("第"+number+"位拥有EOS: "+tokenSubString);
                     }
 
                     @Override

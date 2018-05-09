@@ -27,6 +27,6 @@ public class Constants {
     public static final String EOS_ADDRESS_17 = "0xbfaa1a1ea534d35199e84859975648b59880f639";
     public static final String EOS_ADDRESS_18 = "0x5b7b94e2f7b394ae280646178cb7b07d5945c195";
     public static final String EOS_ADDRESS_19 = "0xeee28d484628d41a82d01e21d12e2e78d69920da";
-    public static final String EOS_ADDRESS_20 = "0x2cf00fb28d3bc7bbe3ddcb464407370ae18dd9e3";
+    public static final String EOS_ADDRESS_20 = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
 
 }
