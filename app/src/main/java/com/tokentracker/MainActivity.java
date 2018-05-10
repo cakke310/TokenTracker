@@ -11,6 +11,8 @@ import com.tokentracker.base.rxjava.MyRxSubscriber;
 import com.tokentracker.base.rxjava.RxSchedulers;
 import com.tokentracker.bean.TokenBean;
 
+import java.math.BigDecimal;
+
 import butterknife.BindView;
 
 
@@ -54,6 +56,13 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tv_token20)
     TextView tv_token20;
 
+    @BindView(R.id.tv_range2)
+    TextView tv_range2;
+
+    private static final int DEF_DIV_SCALE = 10;
+
+    String[] EOS_ADDRESS_BALANCE = {Constants.EOS_ADDRESS_2_balance,Constants.EOS_ADDRESS_3_balance,Constants.EOS_ADDRESS_4_balance,Constants.EOS_ADDRESS_5_balance,Constants.EOS_ADDRESS_6_balance,Constants.EOS_ADDRESS_7_balance,Constants.EOS_ADDRESS_8_balance,Constants.EOS_ADDRESS_9_balance,Constants.EOS_ADDRESS_10_balance,Constants.EOS_ADDRESS_11_balance,Constants.EOS_ADDRESS_12_balance,Constants.EOS_ADDRESS_13_balance,Constants.EOS_ADDRESS_14_balance,Constants.EOS_ADDRESS_15_balance,Constants.EOS_ADDRESS_16_balance,Constants.EOS_ADDRESS_17_balance,Constants.EOS_ADDRESS_18_balance,Constants.EOS_ADDRESS_19_balance,Constants.EOS_ADDRESS_20_balance};
+
     String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20};
     String[] NUMBER ={"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
     @Override
@@ -66,7 +75,7 @@ public class MainActivity extends BaseActivity {
         TextView textArray[]={tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20};
 
         for(int i=0;i<NUMBER.length;i++){
-            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i]);
+            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i],tv_range2);
 //            getTokenBalance(EOS_ADDRESS[i],tv_token20,NUMBER[i]);
 //            Log.e("2222",EOS_ADDRESS[i]+"----"+NUMBER[i]);
             try {
@@ -97,7 +106,7 @@ public class MainActivity extends BaseActivity {
 //        getTokenBalance(Constants.EOS_ADDRESS_20,tv_token20,"20");
     }
 
-    private void getTokenBalance(String address, final TextView tv, final String number) {
+    private void getTokenBalance(final String address, final TextView tv, final String number, final String balance_previous, final TextView tv_range2) {
         ArrayMap<String, String> map = new ArrayMap<>();
         map.put("module", "account");
         map.put("action", "tokenbalance");
@@ -116,7 +125,28 @@ public class MainActivity extends BaseActivity {
                         String tokenBalance = billInfoBean.getResult();
                         String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
 
-                        tv.setText("第"+number+"位拥有EOS: "+tokenSubString);
+//                        BigDecimal pre = new BigDecimal(balance_previous);
+                        BigDecimal pre = new BigDecimal(balance_previous);
+                        BigDecimal now = new BigDecimal(tokenSubString);
+
+                        BigDecimal x = pre.subtract(now);
+                        BigDecimal y = x.divide(pre,2,BigDecimal.ROUND_HALF_UP);
+                        BigDecimal z = y.multiply(BigDecimal.valueOf(100));
+//                        BigDecimal y = x.divide(pre);
+                        Log.e("333",pre+"---"+now);
+                        Log.e("333","---|"+x);
+                        Log.e("333","---|"+y);
+                        Log.e("333","---|"+z);
+//                        Log.e("333","---"+tokenSubString);
+
+
+
+
+                        String subAddress = address.substring(0,5);
+
+                        tv.setText(subAddress+"地址拥有EOS: "+tokenSubString);
+
+                        tv_range2.setText("变动: "+z+"%");
                     }
 
                     @Override

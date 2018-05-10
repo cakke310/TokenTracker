@@ -29,4 +29,25 @@ public class Constants {
     public static final String EOS_ADDRESS_19 = "0xeee28d484628d41a82d01e21d12e2e78d69920da";
     public static final String EOS_ADDRESS_20 = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
 
+
+    public static final String EOS_ADDRESS_2_balance = "56221244";
+    public static final String EOS_ADDRESS_3_balance = "53253903";
+    public static final String EOS_ADDRESS_4_balance = "40897310";
+    public static final String EOS_ADDRESS_5_balance = "39307762";
+    public static final String EOS_ADDRESS_6_balance = "36000000";
+    public static final String EOS_ADDRESS_7_balance = "33776896";
+    public static final String EOS_ADDRESS_8_balance = "27254631";
+    public static final String EOS_ADDRESS_9_balance = "22659189";
+    public static final String EOS_ADDRESS_10_balance = "19477795";
+    public static final String EOS_ADDRESS_11_balance = "16931781";
+    public static final String EOS_ADDRESS_12_balance = "16436924";
+    public static final String EOS_ADDRESS_13_balance = "12325281";
+    public static final String EOS_ADDRESS_14_balance = "10624020";
+    public static final String EOS_ADDRESS_15_balance = "10300399";
+    public static final String EOS_ADDRESS_16_balance = "9999999";
+    public static final String EOS_ADDRESS_17_balance = "9200000";
+    public static final String EOS_ADDRESS_18_balance = "7500000";
+    public static final String EOS_ADDRESS_19_balance = "6351918";
+    public static final String EOS_ADDRESS_20_balance = "5665025";
+
 }
