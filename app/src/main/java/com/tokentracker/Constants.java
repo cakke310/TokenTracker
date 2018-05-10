@@ -27,7 +27,21 @@ public class Constants {
     public static final String EOS_ADDRESS_17 = "0xbfaa1a1ea534d35199e84859975648b59880f639";
     public static final String EOS_ADDRESS_18 = "0x5b7b94e2f7b394ae280646178cb7b07d5945c195";
     public static final String EOS_ADDRESS_19 = "0xeee28d484628d41a82d01e21d12e2e78d69920da";
-    public static final String EOS_ADDRESS_20 = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
+
+    public static final String EOS_ADDRESS_20 = "0x2cf00fb28d3bc7bbe3ddcb464407370ae18dd9e3";
+    public static final String EOS_ADDRESS_21 = "0x5085c06868fa68e752f7fff3cbc11bf724241d7d";
+    public static final String EOS_ADDRESS_22 = "0x6748f50f686bfbca6fe8ad62b22228b87f31ff2b";
+    public static final String EOS_ADDRESS_23 = "0x22b84d5ffea8b801c0422afe752377a64aa738c2";
+    public static final String EOS_ADDRESS_24 = "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be";
+    public static final String EOS_ADDRESS_25 = "0x9383983fc9b283b51b2147785cba047006d322f0";
+    public static final String EOS_ADDRESS_26 = "0x5c985e89dde482efe97ea9f1950ad149eb73829b";
+    public static final String EOS_ADDRESS_27 = "0xe5a138db8746c9b7689d27664fbff8382d7e2412";
+    public static final String EOS_ADDRESS_28 = "0x0aaca9876ec3fe0245daec6b17c52786800ebb7b";
+    public static final String EOS_ADDRESS_29 = "0x6dde928226f1bccf0932396c7f8501c61c04577a";
+    public static final String EOS_ADDRESS_30 = "0x71d71d64ba05a18f409826b9bc348fcd30726c45";
+    public static final String EOS_ADDRESS_31 = "0x6614ecf1136b18920fe9f9c4fba58562f73e409b";
+
+
 
 
     public static final String EOS_ADDRESS_2_balance = "56221244";
@@ -49,5 +63,16 @@ public class Constants {
     public static final String EOS_ADDRESS_18_balance = "7500000";
     public static final String EOS_ADDRESS_19_balance = "6351918";
     public static final String EOS_ADDRESS_20_balance = "5665025";
+    public static final String EOS_ADDRESS_21_balance = "5253248";
+    public static final String EOS_ADDRESS_22_balance = "4582592";
+    public static final String EOS_ADDRESS_23_balance = "4312729";
+    public static final String EOS_ADDRESS_24_balance = "5665025";
+    public static final String EOS_ADDRESS_25_balance = "3720000";
+    public static final String EOS_ADDRESS_26_balance = "3701305";
+    public static final String EOS_ADDRESS_27_balance = "3300372";
+    public static final String EOS_ADDRESS_28_balance = "3286042";
+    public static final String EOS_ADDRESS_29_balance = "3270733";
+    public static final String EOS_ADDRESS_30_balance = "3261957";
+    public static final String EOS_ADDRESS_31_balance = "3180000";
 
 }
