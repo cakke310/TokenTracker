@@ -4,6 +4,7 @@ package com.tokentracker.api;
 import android.support.v4.util.ArrayMap;
 
 import com.tokentracker.bean.TokenBean;
+import com.tokentracker.bean.TokenTransferBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -21,6 +22,13 @@ public interface ApiService {
     //添加银行卡
     @GET("/api")
     Observable<TokenBean> requestTokenAmount(
+            @Header("Cache-Control") String cacheControl,
+            @QueryMap ArrayMap<String, String> map
+    );
+
+    //添加银行卡
+    @GET("/api")
+    Observable<TokenTransferBean> requestTokenTransferHistory(
             @Header("Cache-Control") String cacheControl,
             @QueryMap ArrayMap<String, String> map
     );

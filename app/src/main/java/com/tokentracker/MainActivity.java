@@ -1,7 +1,9 @@
 package com.tokentracker;
 
+import android.content.Intent;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.tokentracker.api.Api;
@@ -12,8 +14,11 @@ import com.tokentracker.base.rxjava.RxSchedulers;
 import com.tokentracker.bean.TokenBean;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity {
@@ -138,6 +143,8 @@ public class MainActivity extends BaseActivity {
     TextView tv_range30;
     @BindView(R.id.tv_range31)
     TextView tv_range31;
+    @BindView(R.id.tv_time)
+    TextView tv_time;
 
     private static final int DEF_DIV_SCALE = 10;
 
@@ -145,6 +152,8 @@ public class MainActivity extends BaseActivity {
 
     String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20,Constants.EOS_ADDRESS_21,Constants.EOS_ADDRESS_22,Constants.EOS_ADDRESS_23,Constants.EOS_ADDRESS_24,Constants.EOS_ADDRESS_25,Constants.EOS_ADDRESS_26,Constants.EOS_ADDRESS_27,Constants.EOS_ADDRESS_28,Constants.EOS_ADDRESS_29,Constants.EOS_ADDRESS_30,Constants.EOS_ADDRESS_31};
     String[] NUMBER ={"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
+    private String tokenSubString;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_main;
@@ -157,14 +166,16 @@ public class MainActivity extends BaseActivity {
 
         for(int i=0;i<EOS_ADDRESS.length;i++){
             getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i],textRangeArray[i]);
-//            getTokenBalance(EOS_ADDRESS[i],tv_token20,NUMBER[i]);
-//            Log.e("2222",EOS_ADDRESS[i]+"----"+NUMBER[i]);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+        Date date = new Date(System.currentTimeMillis());
+        tv_time.setText("当前时间: "+simpleDateFormat.format(date));
 
 //        getTokenBalance(Constants.EOS_ADDRESS_2,tv_token2,"2");
 //        getTokenBalance(Constants.EOS_ADDRESS_3,tv_token3,"3");
@@ -198,27 +209,24 @@ public class MainActivity extends BaseActivity {
 
         Api.getDefault(HostType.EOS_URL).requestTokenAmount(Api.getCacheControl(), map)
                 .compose(RxSchedulers.<TokenBean>io_main())
-                .subscribe(new MyRxSubscriber<TokenBean>(getApplicationContext(), "提交中", false) {
+                .subscribe(new MyRxSubscriber<TokenBean>(getApplicationContext(), "loading", false) {
 
                     @Override
                     protected void _onNext(TokenBean billInfoBean) {
 //                        Log.e("222",billInfoBean.getResult());
                         String tokenBalance = billInfoBean.getResult();
-                        String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
+//                        String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
+                        if(!"0".equals(tokenBalance)){
+                            tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
+                        }else {
+                            tokenSubString = "0";
+                        }
 
-//                        BigDecimal pre = new BigDecimal(balance_previous);
+
                         BigDecimal pre = new BigDecimal(balance_previous);
                         BigDecimal now = new BigDecimal(tokenSubString);
 
-                        BigDecimal x = pre.subtract(now);
-//                        BigDecimal y = x.divide(pre,2,BigDecimal.ROUND_HALF_UP);
-//                        BigDecimal z = y.multiply(BigDecimal.valueOf(100));
-////                        BigDecimal y = x.divide(pre);
-//                        Log.e("333",pre+"---"+now);
-//                        Log.e("333","---|"+x);
-//                        Log.e("333","---|"+y);
-//                        Log.e("333","---|"+z);
-//                        Log.e("333","---"+tokenSubString);
+                        BigDecimal x = now.subtract(pre);
 
                         switch (x.compareTo(BigDecimal.valueOf(0))){
                             case 0:
@@ -237,6 +245,14 @@ public class MainActivity extends BaseActivity {
                         String subAddress = address.substring(0,5);
 
                         tv.setText(number+": "+subAddress+"地址拥有EOS: "+tokenSubString);
+                        tv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(MainActivity.this,TransferHistroyActivity.class);
+                                intent.putExtra("tokenAddress", address);
+                                startActivity(intent);
+                            }
+                        });
 
                         tv_range2.setText("变动: "+x);
                     }
@@ -252,4 +268,11 @@ public class MainActivity extends BaseActivity {
                     }
                 });
     }
+
+//    @OnClick(R.id.tv_time)
+//    public void click(TextView tv_time){
+//        Intent intent = new Intent(this,TransferHistroyActivity.class);
+//        intent.putExtra("tokenAddress", Constants.EOS_ADDRESS_2);
+//        startActivity(intent);
+//    }
 }

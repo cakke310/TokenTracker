@@ -43,9 +43,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class Api {
     //读超时长，单位：毫秒
-    public static final int READ_TIME_OUT = 10000;
+    public static final int READ_TIME_OUT = 100000;
     //连接时长，单位：毫秒
-    public static final int CONNECT_TIME_OUT = 10000;
+    public static final int CONNECT_TIME_OUT = 100000;
 
     public Retrofit retrofit;
     public ApiService movieService;
@@ -200,9 +200,10 @@ public class Api {
      */
     @NonNull
     public static String getCacheControl() {
-        return NetWorkUtils.isNetConnected(BaseApplication.getAppContext()) ?
-                CACHE_CONTROL_AGE ://只请求服务器
-                CACHE_CONTROL_CACHE;//只查询缓存而不会请求服务器
+//        return NetWorkUtils.isNetConnected(BaseApplication.getAppContext()) ?
+//                CACHE_CONTROL_AGE ://只请求服务器
+//                CACHE_CONTROL_CACHE;//只查询缓存而不会请求服务器
+        return CACHE_CONTROL_AGE;
     }
 
     /**

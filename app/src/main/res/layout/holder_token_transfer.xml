@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="from:xxx"
+        android:textSize="14sp"/>
+
+
+    <TextView
+        android:layout_below="@id/tv_time"
+        android:id="@+id/tv_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to:xxx"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5月15日"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_time"
+        android:id="@+id/tv_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="150000"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="IN"/>
+
+
+
+
+
+</RelativeLayout>
