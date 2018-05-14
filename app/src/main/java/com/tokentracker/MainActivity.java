@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity {
