@@ -150,7 +150,7 @@ public class MainActivity extends BaseActivity {
     String[] EOS_ADDRESS_BALANCE = {Constants.EOS_ADDRESS_2_balance,Constants.EOS_ADDRESS_3_balance,Constants.EOS_ADDRESS_4_balance,Constants.EOS_ADDRESS_5_balance,Constants.EOS_ADDRESS_6_balance,Constants.EOS_ADDRESS_7_balance,Constants.EOS_ADDRESS_8_balance,Constants.EOS_ADDRESS_9_balance,Constants.EOS_ADDRESS_10_balance,Constants.EOS_ADDRESS_11_balance,Constants.EOS_ADDRESS_12_balance,Constants.EOS_ADDRESS_13_balance,Constants.EOS_ADDRESS_14_balance,Constants.EOS_ADDRESS_15_balance,Constants.EOS_ADDRESS_16_balance,Constants.EOS_ADDRESS_17_balance,Constants.EOS_ADDRESS_18_balance,Constants.EOS_ADDRESS_19_balance,Constants.EOS_ADDRESS_20_balance,Constants.EOS_ADDRESS_21_balance,Constants.EOS_ADDRESS_22_balance,Constants.EOS_ADDRESS_23_balance,Constants.EOS_ADDRESS_24_balance,Constants.EOS_ADDRESS_25_balance,Constants.EOS_ADDRESS_26_balance,Constants.EOS_ADDRESS_27_balance,Constants.EOS_ADDRESS_28_balance,Constants.EOS_ADDRESS_29_balance,Constants.EOS_ADDRESS_30_balance,Constants.EOS_ADDRESS_31_balance};
 
     String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20,Constants.EOS_ADDRESS_21,Constants.EOS_ADDRESS_22,Constants.EOS_ADDRESS_23,Constants.EOS_ADDRESS_24,Constants.EOS_ADDRESS_25,Constants.EOS_ADDRESS_26,Constants.EOS_ADDRESS_27,Constants.EOS_ADDRESS_28,Constants.EOS_ADDRESS_29,Constants.EOS_ADDRESS_30,Constants.EOS_ADDRESS_31};
-    String[] NUMBER ={"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
+    String[] NUMBER ={"02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
     private String tokenSubString;
 
     @Override
@@ -212,7 +212,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     protected void _onNext(TokenBean billInfoBean) {
-//                        Log.e("222",billInfoBean.getResult());
+                        Log.e("222",billInfoBean.getResult());
                         String tokenBalance = billInfoBean.getResult();
 //                        String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
                         if(!"0".equals(tokenBalance)){

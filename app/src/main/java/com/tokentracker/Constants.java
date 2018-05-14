@@ -75,4 +75,27 @@ public class Constants {
     public static final String EOS_ADDRESS_30_balance = "3261957";
     public static final String EOS_ADDRESS_31_balance = "3180000";
 
+    public static final String[] EOS_ADDRESS_BALANCE = {EOS_ADDRESS_2_balance, EOS_ADDRESS_3_balance,
+            EOS_ADDRESS_4_balance, EOS_ADDRESS_5_balance, EOS_ADDRESS_6_balance,
+            EOS_ADDRESS_7_balance, EOS_ADDRESS_8_balance, EOS_ADDRESS_9_balance,
+            EOS_ADDRESS_10_balance, EOS_ADDRESS_11_balance, EOS_ADDRESS_12_balance,
+            EOS_ADDRESS_13_balance, EOS_ADDRESS_14_balance, EOS_ADDRESS_15_balance,
+            EOS_ADDRESS_16_balance, EOS_ADDRESS_17_balance, EOS_ADDRESS_18_balance,
+            EOS_ADDRESS_19_balance, EOS_ADDRESS_20_balance, EOS_ADDRESS_21_balance,
+            EOS_ADDRESS_22_balance, EOS_ADDRESS_23_balance, EOS_ADDRESS_24_balance,
+            EOS_ADDRESS_25_balance, EOS_ADDRESS_26_balance, EOS_ADDRESS_27_balance,
+            EOS_ADDRESS_28_balance, EOS_ADDRESS_29_balance, EOS_ADDRESS_30_balance,
+            EOS_ADDRESS_31_balance};
+
+    public static final String[] NUMBER = {"02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14",
+            "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+
+    public static final String[] EOS_ADDRESS = {EOS_ADDRESS_2, EOS_ADDRESS_3, EOS_ADDRESS_4,
+            EOS_ADDRESS_5, EOS_ADDRESS_6, EOS_ADDRESS_7, EOS_ADDRESS_8,
+            EOS_ADDRESS_9, EOS_ADDRESS_10, EOS_ADDRESS_11, EOS_ADDRESS_12,
+            EOS_ADDRESS_13, EOS_ADDRESS_14, EOS_ADDRESS_15, EOS_ADDRESS_16,
+            EOS_ADDRESS_17, EOS_ADDRESS_18, EOS_ADDRESS_19, EOS_ADDRESS_20,
+            EOS_ADDRESS_21, EOS_ADDRESS_22, EOS_ADDRESS_23, EOS_ADDRESS_24,
+            EOS_ADDRESS_25, EOS_ADDRESS_26, EOS_ADDRESS_27, EOS_ADDRESS_28,
+            EOS_ADDRESS_29, EOS_ADDRESS_30, EOS_ADDRESS_31};
 }

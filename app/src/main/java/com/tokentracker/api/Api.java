@@ -2,6 +2,7 @@ package com.tokentracker.api;
 
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.google.gson.Gson;
@@ -46,6 +47,8 @@ public class Api {
     public static final int READ_TIME_OUT = 100000;
     //连接时长，单位：毫秒
     public static final int CONNECT_TIME_OUT = 100000;
+
+    public static final String TAG = "TAG";
 
     public Retrofit retrofit;
     public ApiService movieService;
@@ -220,7 +223,7 @@ public class Api {
                         .build();
             }
             Response originalResponse = chain.proceed(request);
-            if (NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
+            /*if (NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
                 //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
                 String cacheControl = request.cacheControl().toString();
                 return originalResponse.newBuilder()
@@ -232,7 +235,20 @@ public class Api {
                         .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_SEC)
                         .removeHeader("Pragma")
                         .build();
-            }
+            }*/
+
+
+            okhttp3.MediaType mediaType = originalResponse.body().contentType();
+            String content = originalResponse.body().string();
+            Log.i(TAG, "\n");
+            Log.i(TAG, "----------Start----------------");
+            Log.i(TAG, "| Request:" + request.toString());
+            Log.i(TAG, "| Response:" + content);
+            Log.i(TAG, "----------End------------------");
+            return originalResponse.newBuilder()
+                    .body(okhttp3.ResponseBody.create(mediaType, content))
+                    .build();
         }
     };
+
 }
