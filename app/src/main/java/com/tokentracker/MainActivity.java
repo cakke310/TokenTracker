@@ -9,15 +9,19 @@ import android.widget.TextView;
 import com.tokentracker.api.Api;
 import com.tokentracker.api.HostType;
 import com.tokentracker.base.BaseActivity;
+import com.tokentracker.base.BaseApplication;
 import com.tokentracker.base.rxjava.MyRxSubscriber;
 import com.tokentracker.base.rxjava.RxSchedulers;
 import com.tokentracker.bean.TokenBean;
+import com.tokentracker.bean.TokenTableBean;
+import com.tokentracker.db.TableConfig;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity {
@@ -247,13 +251,18 @@ public class MainActivity extends BaseActivity {
                         tv.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(MainActivity.this,TransferHistroyActivity.class);
+                                Intent intent = new Intent(MainActivity.this,TransferHistory2Activity.class);
                                 intent.putExtra("tokenAddress", address);
                                 startActivity(intent);
                             }
                         });
 
                         tv_range2.setText("变动: "+x);
+
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+                        Date date = new Date(System.currentTimeMillis());
+                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString);
+                        BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
                     }
 
                     @Override
@@ -268,10 +277,18 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-//    @OnClick(R.id.tv_time)
-//    public void click(TextView tv_time){
+    @OnClick(R.id.tv_time)
+    public void click(TextView tv_time){
+//        Log.e("555","tv_time");
+//        ArrayList list = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TableConfig.Customer.TOKEN_ADDRESS, Constants.EOS_ADDRESS_2);
+//        TokenTableBean cus = (TokenTableBean) list.get(0);
+//        Log.e("data222", ""+cus.getTokenAddress()+"==="+cus.getTokenBalance()+"==="+cus.getTokenDate());
+
 //        Intent intent = new Intent(this,TransferHistroyActivity.class);
 //        intent.putExtra("tokenAddress", Constants.EOS_ADDRESS_2);
 //        startActivity(intent);
-//    }
+//        ArrayList<TokenTableBean> query = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TokenTableBean.class, "0x742", "");
+//        Log.e("555",query.toString());
+
+    }
 }

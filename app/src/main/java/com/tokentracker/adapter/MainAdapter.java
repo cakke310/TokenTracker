@@ -10,10 +10,11 @@ import android.widget.TextView;
 
 import com.tokentracker.Constants;
 import com.tokentracker.R;
-import com.tokentracker.TransferHistroyActivity;
+import com.tokentracker.TransferHistory2Activity;
 import com.tokentracker.bean.TokenBean;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import butterknife.BindView;
@@ -79,11 +80,17 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             mainHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mContext, TransferHistroyActivity.class);
+                    Intent intent = new Intent(mContext, TransferHistory2Activity.class);
                     intent.putExtra("tokenAddress", Constants.EOS_ADDRESS[position]);
                     mContext.startActivity(intent);
                 }
             });
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+//            Date date = new Date(System.currentTimeMillis());
+//            TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString);
+//            BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
+
         }
 
     }
