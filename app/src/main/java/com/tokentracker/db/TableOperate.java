@@ -79,7 +79,7 @@ public class TableOperate {
         return list;
     }
 
-    
+
 
     /**
      * 向数据库插入数据
