@@ -15,5 +15,6 @@ public class TableConfig {
         public static final String TOKEN_ADDRESS="tokenAddress";
         public static final String TOKEN_DATE="tokenDate";
         public static final String TOKEN_BALANCE="tokenBalance";
+        public static final String TOKEN_CHANGE="tokenChange";
     }
 }

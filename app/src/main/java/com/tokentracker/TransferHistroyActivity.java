@@ -14,10 +14,7 @@ import com.tokentracker.api.HostType;
 import com.tokentracker.base.BaseActivity;
 import com.tokentracker.base.rxjava.MyRxSubscriber;
 import com.tokentracker.base.rxjava.RxSchedulers;
-import com.tokentracker.bean.TokenBean;
 import com.tokentracker.bean.TokenTransferBean;
-
-import java.math.BigDecimal;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -110,8 +107,6 @@ public class TransferHistroyActivity extends BaseActivity {
 
                     @Override
                     protected void _onNext(TokenTransferBean tokenTransferBean) {
-
-
 
                         if(isFirst){
                             recycler_view.getRecyclerView().scrollToPosition(0);

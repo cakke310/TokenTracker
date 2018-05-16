@@ -261,7 +261,7 @@ public class MainActivity extends BaseActivity {
 
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
                         Date date = new Date(System.currentTimeMillis());
-                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString);
+                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
                         BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
                     }
 

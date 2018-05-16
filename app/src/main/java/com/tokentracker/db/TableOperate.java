@@ -72,12 +72,14 @@ public class TableOperate {
             String tokenAddress = cursor.getString(cursor.getColumnIndex("tokenAddress"));
             String tokenDate = cursor.getString(cursor.getColumnIndex("tokenDate"));
             String tokenBalance = cursor.getString(cursor.getColumnIndex("tokenBalance"));
-            TokenTableBean tokenTableBean=new TokenTableBean(tokenAddress, tokenDate, tokenBalance);
+            TokenTableBean tokenTableBean=new TokenTableBean(tokenAddress, tokenDate, tokenBalance,"");
 
             list.add(tokenTableBean);
         }
         return list;
     }
+
+    
 
     /**
      * 向数据库插入数据

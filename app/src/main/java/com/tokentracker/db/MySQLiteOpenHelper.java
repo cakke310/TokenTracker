@@ -42,7 +42,8 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 +TableConfig.Customer.TOKEN_ID+" integer not null primary key autoincrement,"
                 +TableConfig.Customer.TOKEN_ADDRESS+ " verchar(20),"
                 +TableConfig.Customer.TOKEN_DATE+ " verchar(20),"
-                +TableConfig.Customer.TOKEN_BALANCE+ " verchar(20))"
+                +TableConfig.Customer.TOKEN_BALANCE+ " verchar(20),"
+                +TableConfig.Customer.TOKEN_CHANGE+ " verchar(20))"
                 );
 
     }

@@ -1,5 +1,7 @@
 package com.tokentracker.adapter;
 
+import android.graphics.Color;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
     private TextView tv_token;
     private TextView tv_range;
     private TextView tv_date;
+    private TextView tv_change;
 
     public TokenTransferTableHolder(ViewGroup parent) {
         super(parent, R.layout.holder_token_transfer_table);
@@ -28,6 +31,21 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
         tv_token.setText(object.getTokenAddress());
         tv_range.setText("EOS数量: "+object.getTokenBalance());
         tv_date.setText(object.getTokenDate());
+        Log.e("333 ","getTokenChange||"+object.getTokenChange());
+        Log.e("333 ","getTokenBalance--||"+object.getTokenBalance());
+        if(null!=object.getTokenChange() & !"".equals(object.getTokenChange())){
+            int i = Integer.parseInt(object.getTokenChange());
+            if (i>0){
+                tv_change.setTextColor(Color.parseColor("#FF0000"));
+            }else if(i<0){
+                tv_change.setTextColor(Color.parseColor("#32CD32"));
+            }else {
+                tv_change.setTextColor(Color.parseColor("#FF000000"));
+
+            }
+            tv_change.setText(object.getTokenChange());
+        }
+
 
     }
 
@@ -37,6 +55,7 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
         tv_token = findViewById(R.id.tv_token);
         tv_range = findViewById(R.id.tv_range);
         tv_date = findViewById(R.id.tv_date);
+        tv_change = findViewById(R.id.tv_change);
     }
 
     @Override
