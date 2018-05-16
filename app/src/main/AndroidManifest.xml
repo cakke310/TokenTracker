@@ -29,6 +29,11 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".TransferHistory2Activity"
             android:screenOrientation="portrait"/>
+
+        <service android:name=".service.LongRunningService" >
+        </service>
+        <receiver android:name=".receiver.AlarmReceiver" >
+        </receiver>
     </application>
 
 </manifest>

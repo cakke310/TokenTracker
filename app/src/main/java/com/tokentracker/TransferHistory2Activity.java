@@ -64,28 +64,32 @@ public class TransferHistory2Activity extends BaseActivity {
 
 
         tokenTransferTableAdapter.addAll(list);
+
+        recycler_view.getSwipeRefreshLayout().setEnabled(false);
+        tokenTransferTableAdapter.setLoadMoreEnable(false);
+
         recycler_view.setLayoutManager(new LinearLayoutManager(this));
         recycler_view.setAdapter(tokenTransferTableAdapter);
         recycler_view.dismissSwipeRefresh();
-        recycler_view.addRefreshAction(new Action() {
-            @Override
-            public void onAction() {
-
-            }
-        });
-
-        recycler_view.setLoadMoreAction(new Action() {
-            @Override
-            public void onAction() {
-                recycler_view.dismissSwipeRefresh();
-            }
-        });
-        recycler_view.setLoadMoreErrorAction(new Action() {
-            @Override
-            public void onAction() {
-                // TODO：加载更多错误，点击重新加载
-            }
-        });
+//        recycler_view.addRefreshAction(new Action() {
+//            @Override
+//            public void onAction() {
+//
+//            }
+//        });
+//
+//        recycler_view.setLoadMoreAction(new Action() {
+//            @Override
+//            public void onAction() {
+//                recycler_view.dismissSwipeRefresh();
+//            }
+//        });
+//        recycler_view.setLoadMoreErrorAction(new Action() {
+//            @Override
+//            public void onAction() {
+//                // TODO：加载更多错误，点击重新加载
+//            }
+//        });
 
     }
 }

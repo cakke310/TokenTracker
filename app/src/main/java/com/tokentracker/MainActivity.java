@@ -216,7 +216,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     protected void _onNext(TokenBean billInfoBean) {
-                        Log.e("222",billInfoBean.getResult());
+//                        Log.e("222",billInfoBean.getResult());
                         String tokenBalance = billInfoBean.getResult();
 //                        String tokenSubString = tokenBalance.substring(0,tokenBalance.length()-18);
                         if(!"0".equals(tokenBalance)){
@@ -259,10 +259,10 @@ public class MainActivity extends BaseActivity {
 
                         tv_range2.setText("变动: "+x);
 
-                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
-                        Date date = new Date(System.currentTimeMillis());
-                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
-                        BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
+//                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+//                        Date date = new Date(System.currentTimeMillis());
+//                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
+//                        BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
                     }
 
                     @Override
