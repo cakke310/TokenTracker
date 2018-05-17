@@ -88,6 +88,7 @@ public class MainRecycActivity extends BaseActivity {
                     @Override
                     protected void _onNext(TokenBean billInfoBean) {
                         count++;
+
                         mDatas.add(billInfoBean);
                         mMainAdapter.notifyDataSetChanged();
                         getData(count);

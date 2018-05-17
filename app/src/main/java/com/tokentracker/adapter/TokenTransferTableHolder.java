@@ -29,7 +29,7 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
         super.setData(object);
 
         tv_token.setText(object.getTokenAddress());
-        tv_range.setText("EOS数量: "+object.getTokenBalance());
+        tv_range.setText(" "+object.getTokenBalance());
         tv_date.setText(object.getTokenDate());
         Log.e("333 ","getTokenChange||"+object.getTokenChange());
         Log.e("333 ","getTokenBalance--||"+object.getTokenBalance());

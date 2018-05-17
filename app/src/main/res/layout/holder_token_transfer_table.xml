@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/tv_range"
             style="@style/text_token_range"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimary"
             tools:text="xxxxx"/>
 
         <TextView

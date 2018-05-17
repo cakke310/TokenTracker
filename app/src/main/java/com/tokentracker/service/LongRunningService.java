@@ -10,13 +10,8 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 import com.tokentracker.Constants;
-import com.tokentracker.MainActivity;
-import com.tokentracker.R;
-import com.tokentracker.TransferHistory2Activity;
 import com.tokentracker.api.Api;
 import com.tokentracker.api.HostType;
 import com.tokentracker.base.BaseApplication;
@@ -58,7 +53,7 @@ public class LongRunningService extends Service {
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         //这里是定时的,这里设置的是每隔两秒打印一次时间=-=,自己改
 //        int anHour = 60 * 60 * 1000;
-        int anHour = 60*60 * 1000;
+        int anHour = 2*60*60 * 1000;
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent i = new Intent(this,AlarmReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);

@@ -2,6 +2,7 @@ package com.tokentracker;
 
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,8 @@ public class TransferHistory2Activity extends BaseActivity {
     @BindView(R.id.recycler_view)
     RefreshRecyclerView recycler_view;
     public ArrayList<TokenTableBean> list;
+    public String subAddress;
+    public TokenTransferTableAdapter tokenTransferTableAdapter;
 
     @OnClick(R.id.myactionbar_head_back_layout)
     public void click(){
@@ -43,40 +46,34 @@ public class TransferHistory2Activity extends BaseActivity {
 
     @Override
     public void initView() {
-        TokenTransferTableAdapter tokenTransferTableAdapter = new TokenTransferTableAdapter(this);
+        tokenTransferTableAdapter = new TokenTransferTableAdapter(this);
         Intent intent =getIntent();
         final String address = intent.getStringExtra("tokenAddress");
 
-        String subAddress = address.substring(0,5);
-        myactionbar_titles_tv.setText("钱包地址: "+subAddress);
+        subAddress = address.substring(0,5);
+        myactionbar_titles_tv.setText("钱包地址: "+ subAddress);
 
-        list = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TableConfig.Customer.TOKEN_ADDRESS, subAddress);
-
-        for(int i = 0; i< list.size(); i++){
-            int i1 = Integer.parseInt(list.get(i).getTokenBalance());
-            if(i<list.size()-1){
-                int i2 = Integer.parseInt(list.get(i+1).getTokenBalance());
-                list.get(i+1).setTokenChange(i1-i2+"");
-            }
-
-        }
+        initData(true);
 
 
 
-        tokenTransferTableAdapter.addAll(list);
 
-        recycler_view.getSwipeRefreshLayout().setEnabled(false);
+
+
+
+        recycler_view.getSwipeRefreshLayout().setEnabled(true);
         tokenTransferTableAdapter.setLoadMoreEnable(false);
+        tokenTransferTableAdapter.removeFooter();
 
         recycler_view.setLayoutManager(new LinearLayoutManager(this));
         recycler_view.setAdapter(tokenTransferTableAdapter);
         recycler_view.dismissSwipeRefresh();
-//        recycler_view.addRefreshAction(new Action() {
-//            @Override
-//            public void onAction() {
-//
-//            }
-//        });
+        recycler_view.addRefreshAction(new Action() {
+            @Override
+            public void onAction() {
+               initData(true);
+            }
+        });
 //
 //        recycler_view.setLoadMoreAction(new Action() {
 //            @Override
@@ -91,5 +88,29 @@ public class TransferHistory2Activity extends BaseActivity {
 //            }
 //        });
 
+    }
+
+    private void initData(boolean isRefresh) {
+        list = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TableConfig.Customer.TOKEN_ADDRESS, subAddress);
+
+        for(int i = 0; i< list.size(); i++){
+            int i1 = Integer.parseInt(list.get(i).getTokenBalance());
+            if(i<list.size()-1){
+                int i2 = Integer.parseInt(list.get(i+1).getTokenBalance());
+                list.get(i+1).setTokenChange(i1-i2+"");
+            }
+        }
+        if(isRefresh){
+            Log.e("222","下拉刷新");
+            tokenTransferTableAdapter.clear();
+            tokenTransferTableAdapter.addAll(list);
+            recycler_view.dismissSwipeRefresh();
+
+
+
+        }else {
+            tokenTransferTableAdapter.addAll(list);
+
+        }
     }
 }

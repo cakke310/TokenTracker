@@ -156,6 +156,8 @@ public class MainActivity extends BaseActivity {
     String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20,Constants.EOS_ADDRESS_21,Constants.EOS_ADDRESS_22,Constants.EOS_ADDRESS_23,Constants.EOS_ADDRESS_24,Constants.EOS_ADDRESS_25,Constants.EOS_ADDRESS_26,Constants.EOS_ADDRESS_27,Constants.EOS_ADDRESS_28,Constants.EOS_ADDRESS_29,Constants.EOS_ADDRESS_30,Constants.EOS_ADDRESS_31};
     String[] NUMBER ={"02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
     private String tokenSubString;
+    public TextView[] textArray;
+    public TextView[] textRangeArray;
 
     @Override
     public int getLayoutId() {
@@ -164,11 +166,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        TextView textArray[]={tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20,tv_token21,tv_token22,tv_token23,tv_token24,tv_token25,tv_token26,tv_token27,tv_token28,tv_token29,tv_token30,tv_token31};
-        TextView textRangeArray[]={tv_range2,tv_range3,tv_range4,tv_range5,tv_range6,tv_range7,tv_range8,tv_range9,tv_range10,tv_range11,tv_range12,tv_range13,tv_range14,tv_range15,tv_range16,tv_range17,tv_range18,tv_range19,tv_range20,tv_range21,tv_range22,tv_range23,tv_range24,tv_range25,tv_range26,tv_range27,tv_range28,tv_range29,tv_range30,tv_range31};
+        textArray = new TextView[]{tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20,tv_token21,tv_token22,tv_token23,tv_token24,tv_token25,tv_token26,tv_token27,tv_token28,tv_token29,tv_token30,tv_token31};
+        textRangeArray = new TextView[]{tv_range2,tv_range3,tv_range4,tv_range5,tv_range6,tv_range7,tv_range8,tv_range9,tv_range10,tv_range11,tv_range12,tv_range13,tv_range14,tv_range15,tv_range16,tv_range17,tv_range18,tv_range19,tv_range20,tv_range21,tv_range22,tv_range23,tv_range24,tv_range25,tv_range26,tv_range27,tv_range28,tv_range29,tv_range30,tv_range31};
 
         for(int i=0;i<EOS_ADDRESS.length;i++){
-            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i],textRangeArray[i]);
+            getTokenBalance(EOS_ADDRESS[i], textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i], textRangeArray[i], false);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -180,28 +182,9 @@ public class MainActivity extends BaseActivity {
         Date date = new Date(System.currentTimeMillis());
         tv_time.setText("当前时间: "+simpleDateFormat.format(date));
 
-//        getTokenBalance(Constants.EOS_ADDRESS_2,tv_token2,"2");
-//        getTokenBalance(Constants.EOS_ADDRESS_3,tv_token3,"3");
-//        getTokenBalance(Constants.EOS_ADDRESS_4,tv_token4,"4");
-//        getTokenBalance(Constants.EOS_ADDRESS_5,tv_token5,"5");
-//        getTokenBalance(Constants.EOS_ADDRESS_6,tv_token6,"6");
-//        getTokenBalance(Constants.EOS_ADDRESS_7,tv_token7,"7");
-//        getTokenBalance(Constants.EOS_ADDRESS_8,tv_token8,"8");
-//        getTokenBalance(Constants.EOS_ADDRESS_9,tv_token9,"9");
-//        getTokenBalance(Constants.EOS_ADDRESS_10,tv_token10,"10");
-//        getTokenBalance(Constants.EOS_ADDRESS_11,tv_token11,"11");
-//        getTokenBalance(Constants.EOS_ADDRESS_12,tv_token12,"12");
-//        getTokenBalance(Constants.EOS_ADDRESS_13,tv_token13,"13");
-//        getTokenBalance(Constants.EOS_ADDRESS_14,tv_token14,"14");
-//        getTokenBalance(Constants.EOS_ADDRESS_15,tv_token15,"15");
-//        getTokenBalance(Constants.EOS_ADDRESS_16,tv_token16,"16");
-//        getTokenBalance(Constants.EOS_ADDRESS_17,tv_token17,"17");
-//        getTokenBalance(Constants.EOS_ADDRESS_18,tv_token18,"18");
-//        getTokenBalance(Constants.EOS_ADDRESS_19,tv_token19,"19");
-//        getTokenBalance(Constants.EOS_ADDRESS_20,tv_token20,"20");
     }
 
-    private void getTokenBalance(final String address, final TextView tv, final String number, final String balance_previous, final TextView tv_range2) {
+    private void getTokenBalance(final String address, final TextView tv, final String number, final String balance_previous, final TextView tv_range2, final boolean isRecord) {
         ArrayMap<String, String> map = new ArrayMap<>();
         map.put("module", "account");
         map.put("action", "tokenbalance");
@@ -259,11 +242,14 @@ public class MainActivity extends BaseActivity {
 
                         tv_range2.setText("变动: "+x);
 
-//                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
-//                        Date date = new Date(System.currentTimeMillis());
-//                        TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
-//                        BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
-                    }
+                        if(isRecord){
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+                            Date date = new Date(System.currentTimeMillis());
+                            TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
+                            BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
+
+                        }
+                               }
 
                     @Override
                     public void onCompleted() {
@@ -279,16 +265,17 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.tv_time)
     public void click(TextView tv_time){
-//        Log.e("555","tv_time");
-//        ArrayList list = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TableConfig.Customer.TOKEN_ADDRESS, Constants.EOS_ADDRESS_2);
-//        TokenTableBean cus = (TokenTableBean) list.get(0);
-//        Log.e("data222", ""+cus.getTokenAddress()+"==="+cus.getTokenBalance()+"==="+cus.getTokenDate());
+        for(int i=0;i<EOS_ADDRESS.length;i++){
+            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i],textRangeArray[i],true);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-//        Intent intent = new Intent(this,TransferHistroyActivity.class);
-//        intent.putExtra("tokenAddress", Constants.EOS_ADDRESS_2);
-//        startActivity(intent);
-//        ArrayList<TokenTableBean> query = BaseApplication.tableOperate.query(TableConfig.TABLE_Token, TokenTableBean.class, "0x742", "");
-//        Log.e("555",query.toString());
-
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+        Date date = new Date(System.currentTimeMillis());
+        tv_time.setText("当前时间: "+simpleDateFormat.format(date)+"  插入数据完成");
     }
 }

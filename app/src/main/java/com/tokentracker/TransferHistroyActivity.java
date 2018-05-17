@@ -113,6 +113,7 @@ public class TransferHistroyActivity extends BaseActivity {
                             isFirst = false;
                         }
                         if(isRefresh){
+
                             tokenTransferAdapter.clear();
                             tokenTransferAdapter.addAll(tokenTransferBean.getResult());
 
