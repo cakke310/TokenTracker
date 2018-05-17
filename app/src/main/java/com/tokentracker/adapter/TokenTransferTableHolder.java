@@ -29,7 +29,7 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
         super.setData(object);
 
         tv_token.setText(object.getTokenAddress());
-        tv_range.setText(" "+object.getTokenBalance());
+        tv_range.setText("数量: "+object.getTokenBalance());
         tv_date.setText(object.getTokenDate());
         Log.e("333 ","getTokenChange||"+object.getTokenChange());
         Log.e("333 ","getTokenBalance--||"+object.getTokenBalance());
@@ -43,7 +43,7 @@ public class TokenTransferTableHolder extends BaseViewHolder<TokenTableBean> {
                 tv_change.setTextColor(Color.parseColor("#FF000000"));
 
             }
-            tv_change.setText(object.getTokenChange());
+            tv_change.setText(""+object.getTokenChange());
         }
 
 

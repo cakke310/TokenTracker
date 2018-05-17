@@ -85,6 +85,45 @@ public class MainActivity extends BaseActivity {
     TextView tv_token30;
     @BindView(R.id.tv_token31)
     TextView tv_token31;
+    @BindView(R.id.tv_token32)
+    TextView tv_token32;
+    @BindView(R.id.tv_token33)
+    TextView tv_token33;
+    @BindView(R.id.tv_token34)
+    TextView tv_token34;
+    @BindView(R.id.tv_token35)
+    TextView tv_token35;
+    @BindView(R.id.tv_token36)
+    TextView tv_token36;
+    @BindView(R.id.tv_token37)
+    TextView tv_token37;
+    @BindView(R.id.tv_token38)
+    TextView tv_token38;
+    @BindView(R.id.tv_token39)
+    TextView tv_token39;
+    @BindView(R.id.tv_token40)
+    TextView tv_token40;
+    @BindView(R.id.tv_token41)
+    TextView tv_token41;
+    @BindView(R.id.tv_token42)
+    TextView tv_token42;
+    @BindView(R.id.tv_token43)
+    TextView tv_token43;
+    @BindView(R.id.tv_token44)
+    TextView tv_token44;
+    @BindView(R.id.tv_token45)
+    TextView tv_token45;
+    @BindView(R.id.tv_token46)
+    TextView tv_token46;
+    @BindView(R.id.tv_token47)
+    TextView tv_token47;
+    @BindView(R.id.tv_token48)
+    TextView tv_token48;
+    @BindView(R.id.tv_token49)
+    TextView tv_token49;
+    @BindView(R.id.tv_token50)
+    TextView tv_token50;
+
 
     @BindView(R.id.tv_range2)
     TextView tv_range2;
@@ -146,15 +185,49 @@ public class MainActivity extends BaseActivity {
     TextView tv_range30;
     @BindView(R.id.tv_range31)
     TextView tv_range31;
+    @BindView(R.id.tv_range32)
+    TextView tv_range32;
+    @BindView(R.id.tv_range33)
+    TextView tv_range33;
+    @BindView(R.id.tv_range34)
+    TextView tv_range34;
+    @BindView(R.id.tv_range35)
+    TextView tv_range35;
+    @BindView(R.id.tv_range36)
+    TextView tv_range36;
+    @BindView(R.id.tv_range37)
+    TextView tv_range37;
+    @BindView(R.id.tv_range38)
+    TextView tv_range38;
+    @BindView(R.id.tv_range39)
+    TextView tv_range39;
+    @BindView(R.id.tv_range40)
+    TextView tv_range40;
+    @BindView(R.id.tv_range41)
+    TextView tv_range41;
+    @BindView(R.id.tv_range42)
+    TextView tv_range42;
+    @BindView(R.id.tv_range43)
+    TextView tv_range43;
+    @BindView(R.id.tv_range44)
+    TextView tv_range44;
+    @BindView(R.id.tv_range45)
+    TextView tv_range45;
+    @BindView(R.id.tv_range46)
+    TextView tv_range46;
+    @BindView(R.id.tv_range47)
+    TextView tv_range47;
+    @BindView(R.id.tv_range48)
+    TextView tv_range48;
+    @BindView(R.id.tv_range49)
+    TextView tv_range49;
+    @BindView(R.id.tv_range50)
+    TextView tv_range50;
+
+
     @BindView(R.id.tv_time)
     TextView tv_time;
 
-    private static final int DEF_DIV_SCALE = 10;
-
-    String[] EOS_ADDRESS_BALANCE = {Constants.EOS_ADDRESS_2_balance,Constants.EOS_ADDRESS_3_balance,Constants.EOS_ADDRESS_4_balance,Constants.EOS_ADDRESS_5_balance,Constants.EOS_ADDRESS_6_balance,Constants.EOS_ADDRESS_7_balance,Constants.EOS_ADDRESS_8_balance,Constants.EOS_ADDRESS_9_balance,Constants.EOS_ADDRESS_10_balance,Constants.EOS_ADDRESS_11_balance,Constants.EOS_ADDRESS_12_balance,Constants.EOS_ADDRESS_13_balance,Constants.EOS_ADDRESS_14_balance,Constants.EOS_ADDRESS_15_balance,Constants.EOS_ADDRESS_16_balance,Constants.EOS_ADDRESS_17_balance,Constants.EOS_ADDRESS_18_balance,Constants.EOS_ADDRESS_19_balance,Constants.EOS_ADDRESS_20_balance,Constants.EOS_ADDRESS_21_balance,Constants.EOS_ADDRESS_22_balance,Constants.EOS_ADDRESS_23_balance,Constants.EOS_ADDRESS_24_balance,Constants.EOS_ADDRESS_25_balance,Constants.EOS_ADDRESS_26_balance,Constants.EOS_ADDRESS_27_balance,Constants.EOS_ADDRESS_28_balance,Constants.EOS_ADDRESS_29_balance,Constants.EOS_ADDRESS_30_balance,Constants.EOS_ADDRESS_31_balance};
-
-    String[] EOS_ADDRESS = {Constants.EOS_ADDRESS_2,Constants.EOS_ADDRESS_3,Constants.EOS_ADDRESS_4,Constants.EOS_ADDRESS_5,Constants.EOS_ADDRESS_6,Constants.EOS_ADDRESS_7,Constants.EOS_ADDRESS_8,Constants.EOS_ADDRESS_9,Constants.EOS_ADDRESS_10,Constants.EOS_ADDRESS_11,Constants.EOS_ADDRESS_12,Constants.EOS_ADDRESS_13,Constants.EOS_ADDRESS_14,Constants.EOS_ADDRESS_15,Constants.EOS_ADDRESS_16,Constants.EOS_ADDRESS_17,Constants.EOS_ADDRESS_18,Constants.EOS_ADDRESS_19,Constants.EOS_ADDRESS_20,Constants.EOS_ADDRESS_21,Constants.EOS_ADDRESS_22,Constants.EOS_ADDRESS_23,Constants.EOS_ADDRESS_24,Constants.EOS_ADDRESS_25,Constants.EOS_ADDRESS_26,Constants.EOS_ADDRESS_27,Constants.EOS_ADDRESS_28,Constants.EOS_ADDRESS_29,Constants.EOS_ADDRESS_30,Constants.EOS_ADDRESS_31};
-    String[] NUMBER ={"02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
     private String tokenSubString;
     public TextView[] textArray;
     public TextView[] textRangeArray;
@@ -166,13 +239,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        textArray = new TextView[]{tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20,tv_token21,tv_token22,tv_token23,tv_token24,tv_token25,tv_token26,tv_token27,tv_token28,tv_token29,tv_token30,tv_token31};
-        textRangeArray = new TextView[]{tv_range2,tv_range3,tv_range4,tv_range5,tv_range6,tv_range7,tv_range8,tv_range9,tv_range10,tv_range11,tv_range12,tv_range13,tv_range14,tv_range15,tv_range16,tv_range17,tv_range18,tv_range19,tv_range20,tv_range21,tv_range22,tv_range23,tv_range24,tv_range25,tv_range26,tv_range27,tv_range28,tv_range29,tv_range30,tv_range31};
+        textArray = new TextView[]{tv_token2,tv_token3,tv_token4,tv_token5,tv_token6,tv_token7,tv_token8,tv_token9,tv_token10,
+                                    tv_token11,tv_token12,tv_token13,tv_token14,tv_token15,tv_token16,tv_token17,tv_token18,tv_token19,tv_token20,
+                                    tv_token21,tv_token22,tv_token23,tv_token24,tv_token25,tv_token26,tv_token27,tv_token28,tv_token29,tv_token30,
+                                    tv_token31,tv_token32,tv_token33,tv_token34,tv_token35,tv_token36,tv_token37,tv_token38,tv_token39,tv_token40,
+                                    tv_token41,tv_token42,tv_token43,tv_token44,tv_token45,tv_token46,tv_token47,tv_token48,tv_token49,tv_token50};
+        textRangeArray = new TextView[]{tv_range2,tv_range3,tv_range4,tv_range5,tv_range6,tv_range7,tv_range8,tv_range9,tv_range10,
+                                        tv_range11,tv_range12,tv_range13,tv_range14,tv_range15,tv_range16,tv_range17,tv_range18,tv_range19,tv_range20,
+                                        tv_range21,tv_range22,tv_range23,tv_range24,tv_range25,tv_range26,tv_range27,tv_range28,tv_range29,tv_range30,
+                                        tv_range31,tv_range32,tv_range33,tv_range34,tv_range35,tv_range36,tv_range37,tv_range38,tv_range39,tv_range40,
+                                        tv_range41,tv_range42,tv_range43,tv_range44,tv_range45,tv_range46,tv_range47,tv_range48,tv_range49,tv_range50};
 
-        for(int i=0;i<EOS_ADDRESS.length;i++){
-            getTokenBalance(EOS_ADDRESS[i], textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i], textRangeArray[i], false);
+
+        for(int i=0;i<Constants.EOS_ADDRESS.length;i++){
+            getTokenBalance(Constants.EOS_ADDRESS[i], textArray[i],Constants.NUMBER[i],Constants.EOS_ADDRESS_BALANCE[i], textRangeArray[i], false);
             try {
-                Thread.sleep(500);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -265,8 +347,8 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.tv_time)
     public void click(TextView tv_time){
-        for(int i=0;i<EOS_ADDRESS.length;i++){
-            getTokenBalance(EOS_ADDRESS[i],textArray[i],NUMBER[i],EOS_ADDRESS_BALANCE[i],textRangeArray[i],true);
+        for(int i=0;i<Constants.EOS_ADDRESS.length;i++){
+            getTokenBalance(Constants.EOS_ADDRESS[i],textArray[i],Constants.NUMBER[i],Constants.EOS_ADDRESS_BALANCE[i],textRangeArray[i],true);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

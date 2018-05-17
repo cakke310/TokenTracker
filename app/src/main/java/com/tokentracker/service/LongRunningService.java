@@ -42,7 +42,7 @@ public class LongRunningService extends Service {
                 for(int i=0;i<EOS_ADDRESS.length;i++){
                     getTokenBalance(EOS_ADDRESS[i],EOS_ADDRESS_BALANCE[i]);
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(300);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

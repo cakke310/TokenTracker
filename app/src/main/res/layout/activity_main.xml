@@ -411,6 +411,240 @@
                 style="@style/text_token_range" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token32"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range32"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token33"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range33"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token34"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range34"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token35"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range35"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token36"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range36"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token37"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range37"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token38"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range38"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token39"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range39"
+                style="@style/text_token_range" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token40"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range40"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token41"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range41"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token42"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range42"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token43"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range43"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token44"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range44"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token45"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range45"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token46"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range46"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token47"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range47"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token48"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range48"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token49"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range49"
+                style="@style/text_token_range" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_token50"
+                style="@style/text_token_balance" />
+
+            <TextView
+                android:id="@+id/tv_range50"
+                style="@style/text_token_range" />
+        </LinearLayout>
 
     </LinearLayout>
 
