@@ -325,10 +325,12 @@ public class MainActivity extends BaseActivity {
                         tv_range2.setText("变动: "+x);
 
                         if(isRecord){
+
                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
                             Date date = new Date(System.currentTimeMillis());
                             TokenTableBean tokenTableBean = new TokenTableBean(subAddress,"" + simpleDateFormat.format(date),tokenSubString,"");
                             BaseApplication.tableOperate.insert(TableConfig.TABLE_Token,tokenTableBean);
+                            Log.e("222","插入数据"+simpleDateFormat.format(date)+"---"+subAddress);
 
                         }
                                }

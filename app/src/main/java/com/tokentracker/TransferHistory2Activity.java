@@ -47,6 +47,7 @@ public class TransferHistory2Activity extends BaseActivity {
     @Override
     public void initView() {
         tokenTransferTableAdapter = new TokenTransferTableAdapter(this);
+
         Intent intent =getIntent();
         final String address = intent.getStringExtra("tokenAddress");
 
@@ -61,7 +62,7 @@ public class TransferHistory2Activity extends BaseActivity {
 
 
 
-        recycler_view.getSwipeRefreshLayout().setEnabled(true);
+        recycler_view.getSwipeRefreshLayout().setEnabled(false);
         tokenTransferTableAdapter.setLoadMoreEnable(false);
         tokenTransferTableAdapter.removeFooter();
 
@@ -71,13 +72,19 @@ public class TransferHistory2Activity extends BaseActivity {
         recycler_view.addRefreshAction(new Action() {
             @Override
             public void onAction() {
-               initData(true);
+//                Log.e("222","addRefreshAction");
+//
+//                initData(true);
+                recycler_view.dismissSwipeRefresh();
+
             }
         });
 //
 //        recycler_view.setLoadMoreAction(new Action() {
 //            @Override
 //            public void onAction() {
+//                Log.e("222","setLoadMoreAction");
+//
 //                recycler_view.dismissSwipeRefresh();
 //            }
 //        });
@@ -100,17 +107,10 @@ public class TransferHistory2Activity extends BaseActivity {
                 list.get(i+1).setTokenChange(i1-i2+"");
             }
         }
-        if(isRefresh){
-            Log.e("222","下拉刷新");
-            tokenTransferTableAdapter.clear();
+        Log.e("222","list size"+list.size());
+
+        tokenTransferTableAdapter.clear();
             tokenTransferTableAdapter.addAll(list);
             recycler_view.dismissSwipeRefresh();
-
-
-
-        }else {
-            tokenTransferTableAdapter.addAll(list);
-
-        }
     }
 }

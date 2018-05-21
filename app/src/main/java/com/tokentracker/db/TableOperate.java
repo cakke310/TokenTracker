@@ -67,7 +67,7 @@ public class TableOperate {
 
         ArrayList list = new ArrayList();
         Cursor cursor = db.query(tableName, null, fieldName + " like ?", new String[]{value}, null, null, " id desc", null);
-        cursor.moveToFirst();
+        //cursor.moveToFirst();
         while (cursor.moveToNext()) {
             String tokenAddress = cursor.getString(cursor.getColumnIndex("tokenAddress"));
             String tokenDate = cursor.getString(cursor.getColumnIndex("tokenDate"));
